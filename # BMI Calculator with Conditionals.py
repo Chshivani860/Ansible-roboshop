@@ -1,0 +1,5 @@
+height =eval(input("enter your height:"))
+weight =eval(input("enter your weight:"))
+print(height)
+bmi = weight / (height**2)
+print(bmi)
