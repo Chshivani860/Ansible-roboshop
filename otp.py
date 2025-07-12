@@ -9,4 +9,4 @@ if entered_otp == otp:
     print("OTP verified succesfully!")
 
 else:
-    print("invalid OTP. Please try again.")
+    print("invalid OTP. Please try Again.")
