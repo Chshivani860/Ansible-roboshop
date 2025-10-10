@@ -16,7 +16,7 @@
   - name: create ec2 instance
     amazon.aws.ec2_instance:
       name: " {{ item }}"
-      instance_type: t2micro
+      instance_type: t2.micro
       security_group: "{{ sg_id }}"
       image_id: "{{ ami_id }}"
       tags:
@@ -24,6 +24,6 @@
     loop: "{{ instance }}"
     register: ec2_output
 
-  - name: print  ec2_output
+  - name: print  ec2_output 
     ansible.builtin.debug:
       msg: "{{ ec2_output }}"
