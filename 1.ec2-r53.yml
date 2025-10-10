@@ -1,0 +1,29 @@
+- name: create ec2 instance and r53
+  hosts: local
+  connection: local
+
+  vars:
+    ami_id:
+    sg_id:
+    zone_id:
+    domain_name:
+    instance:
+    - mongodb
+    - mysql
+    - redis
+
+  tasks:
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      name: " {{ item }}"
+      instance_type: t2micro
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+      tags:
+        name: "{{ item }}"
+    loop: "{{ instance }}"
+    register: ec2_output
+
+  - name: print  ec2_output
+    ansible.builtin.debug:
+      msg: "{{ ec2_output }}"
