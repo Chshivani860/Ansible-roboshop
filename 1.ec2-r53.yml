@@ -31,10 +31,10 @@
   - name: print public ip
     ansible.builtin.debug:
       msg: " {{ items.instance[0].public_ip_address}}"
-    loop: "{{ ec2_output }}"
+    loop: "{{ ec2_output.results }}"
 
 
   - name: print private_IP
     ansible.builtin.debug:
       msg: " {{ items.instance[0].private_ip_address}}"
-    loop: "{{ ec2_output }}"
+    loop: "{{ ec2_output.results }}"
