@@ -22,6 +22,18 @@
     loop: "{{ instance }}"
     register: ec2_output
 
-  - name: print  ec2_output 
+  # - name: print  ec2_output 
+  #   ansible.builtin.debug:
+  #     msg: "{{ ec2_output }}"
+
+
+  - name: print public ip
     ansible.builtin.debug:
-      msg: "{{ ec2_output }}"
+      msg: " {{ items.instance[0].public_ip_address}}"
+    loop: "{{ ec2_output }}"
+
+
+  - name: print private_IP
+    ansible.builtin.debug:
+      msg: " {{ items.instance[0].private_ip_address}}"
+    loop: "{{ ec2_output }}"
