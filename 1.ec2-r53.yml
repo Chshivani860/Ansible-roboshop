@@ -38,13 +38,13 @@
   #     msg: " PrivateIP: {{ item.instances[0].private_ip_address}}"
   #   loop: "{{ ec2_output.results }}"
 
-  - name: create r53 reecord
+  - name: create route53 record
     amazon.aws.route53:
       state: present
       zone: "{{ domain_name }}"
-      record:  "{{ item.item }}.{{ domain_name }}"
+      record: "{{ item.item }}.{{ domain_name }}" 
       type: A
       ttl: 1
-      value: "{{ item.private_ip_addresses[0].private_ip_address }}"
+      value: "{{ item.instances[0].private_ip_address }}"
       overwrite: true
-    loop: " {{ ec2_output.results }}" 
+    loop: "{{ ec2_output.results }}"
