@@ -9,9 +9,7 @@
     domain_name: chokka.space
     instance:
     - mongodb
-    - mysql
-    - redis
-
+    
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:
