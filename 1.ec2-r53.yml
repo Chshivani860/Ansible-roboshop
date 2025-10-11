@@ -8,9 +8,9 @@
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
     instance:
-    - mongodb
     - mysql
-
+    - mongodb
+    
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:
