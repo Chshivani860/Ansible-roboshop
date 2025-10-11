@@ -8,7 +8,6 @@
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
     instance:
-    - mysql
     - mongodb
 
   tasks:
