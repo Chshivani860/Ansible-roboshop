@@ -7,8 +7,8 @@
     sg_id: sg-0322f8df90fa2e7d7
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
-    instance:
-    - rabbitmq
+    # instance:
+    # - rabbitmq
 
   tasks:
   - name: create ec2 instance
@@ -46,4 +46,17 @@
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
       overwrite: true
+    loop: "{{ ec2_output.results }}"
+
+
+  - name: create route53 record for frontend
+    amazon.aws.route53:
+      state: present
+      zone: "{{ domain_name }}"
+      record: "{{ domain_name }}" 
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].public_ip_address }}"
+      overwrite: true
+    when: item.item = "frontend"
     loop: "{{ ec2_output.results }}"
