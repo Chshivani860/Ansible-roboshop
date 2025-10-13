@@ -7,7 +7,7 @@
     sg_id: sg-0322f8df90fa2e7d7
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
-     instance:
+    instance:
     - mongodb
     - mysql
 
