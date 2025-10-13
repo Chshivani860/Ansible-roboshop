@@ -10,6 +10,7 @@
     instance:
     - payment
     - frontend
+    
 
 
   tasks:
@@ -21,6 +22,12 @@
       image_id: "{{ ami_id }}"
       tags:
         name: "{{ item }}"
+        Group: "{{ instance }}"
+        network:
+          assign_public_ip: true
+          vpc_subnet_id: "vpc-08adfd416e132f8cb"
+          security_group_id: sg-0322f8df90fa2e7d7
+
     loop: "{{ instance }}"
     register: ec2_output
 
