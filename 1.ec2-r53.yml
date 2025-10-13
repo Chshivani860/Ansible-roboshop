@@ -8,8 +8,15 @@
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
     instance:
-    - mongodb
-    - mysql
+    - redis
+    - rabbitmq
+    - catalogue
+    - user
+    - cart
+    - user
+    - payment
+    - frontend
+
 
   tasks:
   - name: create ec2 instance
@@ -59,5 +66,5 @@
       ttl: 1
       value: "{{ item.instances[0].public_ip_address }}"
       overwrite: true
-    when: item.item = "frontend"
+    when: item.item == "frontend"
     loop: "{{ ec2_output.results }}"
