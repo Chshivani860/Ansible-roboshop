@@ -8,12 +8,6 @@
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
     instance:
-    - redis
-    - rabbitmq
-    - catalogue
-    - user
-    - cart
-    - user
     - payment
     - frontend
 
