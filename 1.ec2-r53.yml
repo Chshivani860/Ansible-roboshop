@@ -22,7 +22,7 @@
         Group: "{{ instance }}"
         network:
           assign_public_ip: true
-          vpc_subnet_id: "vpc-08adfd416e132f8cb"
+          vpc_subnet_id: "09caee44c552f68ae"
           security_group_id: sg-0f8d9ba3ff0daf309
 
     loop: "{{ instance }}"
