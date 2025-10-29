@@ -4,7 +4,7 @@
 
   vars:
     ami_id: ami-09c813fb71547fc4f
-    sg_id: sg-0322f8df90fa2e7d7
+    sg_id: sg-0f8d9ba3ff0daf309
     zone_id: Z0331201LO8VIYKIIHQI
     domain_name: chokka.space
     instance:
@@ -23,7 +23,7 @@
         network:
           assign_public_ip: true
           vpc_subnet_id: "vpc-08adfd416e132f8cb"
-          security_group_id: sg-0322f8df90fa2e7d7
+          security_group_id: sg-0f8d9ba3ff0daf309
 
     loop: "{{ instance }}"
     register: ec2_output
